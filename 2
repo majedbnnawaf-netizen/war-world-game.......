@@ -1,0 +1,8 @@
+float speed = sprinting ? sprintSpeed : walkSpeed;AdvancedMovement adv = GetComponent<AdvancedMovement>();
+float speedMultiplier = adv != null ? adv.GetSpeedMultiplier() : 1f;
+float speed = (sprinting ? sprintSpeed : walkSpeed) * speedMultiplier;RagdollController ragdoll = GetComponent<RagdollController>();
+if (ragdoll != null)
+{
+    Vector3 force = /* اتجاه آخر رصاصة ضربت الشخصية × قوة معينة */;
+    ragdoll.Die(force, transform.position);
+}
